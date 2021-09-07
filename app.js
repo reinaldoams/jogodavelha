@@ -11,29 +11,68 @@ const arr = [
     quadrado1, quadrado2, quadrado3, quadrado4, quadrado5, quadrado6, quadrado7, quadrado8, quadrado9
 ];
 const char = document.getElementsByClassName('char');
-
-console.log(char)
+const winner = document.getElementsByClassName('oorx');
+const newGameBtn = document.getElementsByClassName('newgame');
 
 const charChange = () => {
     if (char[0].innerText == 'O') {
         char[0].innerText = 'X'
     } else {
-        console.log('eh x')
         char[0].innerText = 'O'
     }
 }
 
 char[0].addEventListener('click', charChange)
 
-console.log(char[0].innerText);
+const newGame = () => {
+    arr.map(item => item[0].innerText = '');
+    winner[0].innerText = '...';
+}
+
+newGameBtn[0].addEventListener('click', newGame);
+
+const checkWin = () => {
+    if (quadrado1[0].innerText !== '' && winner[0].innerText == '...') {
+        if (quadrado1[0].innerText == quadrado2[0].innerText && quadrado2[0].innerText == quadrado3[0].innerText) {
+            winner[0].innerText = quadrado1[0].innerText
+        }
+        if (quadrado1[0].innerText == quadrado4[0].innerText && quadrado4[0].innerText == quadrado7[0].innerText) {
+            winner[0].innerText = quadrado1[0].innerText
+        }
+        if (quadrado1[0].innerText == quadrado5[0].innerText && quadrado5[0].innerText == quadrado9[0].innerText) {
+            winner[0].innerText = quadrado1[0].innerText
+        }
+    }
+    if (quadrado5[0].innerText !== '' && winner[0].innerText == '...') {
+        if (quadrado2[0].innerText == quadrado5[0].innerText && quadrado5[0].innerText == quadrado8[0].innerText) {
+            winner[0].innerText = quadrado5[0].innerText
+        }
+        if (quadrado4[0].innerText == quadrado5[0].innerText && quadrado5[0].innerText == quadrado6[0].innerText) {
+            winner[0].innerText = quadrado5[0].innerText
+        }
+        if (quadrado3[0].innerText == quadrado5[0].innerText && quadrado5[0].innerText == quadrado7[0].innerText) {
+            winner[0].innerText = quadrado5[0].innerText
+        }
+    }
+    if (quadrado9[0].innerText !== '' && winner[0].innerText == '...') {
+        if (quadrado3[0].innerText == quadrado6[0].innerText && quadrado6[0].innerText == quadrado9[0].innerText) {
+            winner[0].innerText = quadrado9[0].innerText
+        }
+        if (quadrado7[0].innerText == quadrado8[0].innerText && quadrado8[0].innerText == quadrado9[0].innerText) {
+            winner[0].innerText = quadrado9[0].innerText
+        }
+    }
+}
 
 const funcaoClick = (evento) => {
-    if (evento.target.innerText != ''){
+    // console.log(quadrado1[0].innerText);
+    if (evento.target.innerText != '') {
         return
     } else {
-        console.log(evento)
         evento.target.innerText = char[0].innerText;
     }
+    checkWin()
+    charChange()
 }
 
 arr.map(item => {

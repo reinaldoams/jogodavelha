@@ -1,22 +1,39 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     border: solid;
-    background-color: rgb(95, 31, 148);
+    background-color: #081c15;
+    color: #74c69d;
 }
 
 h1 {
-    font-family: cursive;
+    font-family:sans-serif;
+    font-size: 3rem;
 }
 
-h2 {
+section {
+    display: flex;
+}
+
+.player, .winner {
     display: flex;
     align-self: flex-end;
-    margin: 5rem;
+    font-size: 4rem;
+    margin: 2rem;
+    transition: 0.4s;
+}
+
+.newgame {
+    display: flex;
+    align-self: flex-start;
     font-size: 3rem;
-    padding: 1rem 0 0 0;
+    padding: 1rem;
+    border: solid;
+    color: rgb(182, 173, 167);
+    background-color: #1b4332;
+    margin: 2rem;
+    transition: 0.2s;
 }
 
 td {
@@ -26,11 +43,12 @@ td {
     text-align: center;
     font-size: 5rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: gray;
+    background-color: #1b4332;
+    color: #74c69d;
 }
 
 td:hover {
-    background-color: rgb(92, 91, 91);
+    background-color: #2d6a4f;
     transition: 0.2s;
 }
 
@@ -38,16 +56,21 @@ span {
     margin: 0 1rem 1rem 1rem;
     padding: 1rem 1rem 1rem 1rem;
     border: solid;
-    color: rgb(182, 173, 167);
-    background-color:rgb(83, 34, 34);
+    color: #74c69d;
+    background-color: #1b4332;
     display: flex;
     justify-content: center;
     align-content: center;
     width: 3rem;
 }
 
-span:hover {
-    color: rgb(63, 49, 40);
-    background-color:rgb(143, 119, 119);
+.char {
+    transition: 0.4s;
+}
+
+.char:hover, .newgame:hover, .restart:hover {
+    color: #1b4332;
+    background-color: #95d5b2;
+    border: solid 0.3rem;
     transition: 0.2s;
 }
